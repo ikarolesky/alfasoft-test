@@ -23,6 +23,11 @@
                         {{ __('Contacts') }}
                     </x-nav-link>
                 </div>
+                @if(!Auth::user())
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
@@ -59,7 +64,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            @endif
+            
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
@@ -69,6 +74,7 @@
                     </svg>
                 </button>
             </div>
+            @endif
         </div>
     </div>
 
